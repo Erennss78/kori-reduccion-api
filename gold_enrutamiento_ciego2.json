@@ -1,0 +1,613 @@
+{
+ "_nota": "Gold set CIEGO 2 de E3 (01/10/2026), escrito por Claude a pedido del usuario ANTES de correrlo y sin modificarlo después. 20 preguntas por intención, 6 tablas nuevas, redacción más variada (telegráfica, coloquial, con errores de tipeo, palabras trampa como 'predicción de pedidos' = pronosticar). Limitaciones: lo escribió el mismo asistente que ayudó con las reglas; no lo escribió otra persona. Algunas etiquetas pueden ser discutibles.",
+ "tablas": {
+  "colegio": "Tabla: 62.000 filas, calificaciones de estudiantes. Columnas: estudiante, curso, materia, fecha de la prueba, nota (0 a 10), asistencia (%), repitió año (sí/no).",
+  "prestamos": "Tabla: 310.000 filas, préstamos personales de un banco. Columnas: fecha de solicitud, monto, plazo (meses), ingreso mensual del cliente, edad, estado civil, en mora (sí/no).",
+  "cultivos": "Tabla: 95.000 filas, parcelas agrícolas por campaña. Columnas: parcela, cultivo, fecha de siembra, hectáreas, lluvia acumulada (mm), fertilizante (kg), rendimiento (t/ha).",
+  "streaming": "Tabla: 8.500.000 filas, reproducciones de una plataforma de video. Columnas: usuario, título, género, fecha y hora, minutos vistos, dispositivo, suscripción (básica/premium).",
+  "taller": "Tabla: 2.700.000 filas, sensores de máquinas CNC cada 5 segundos. Columnas: máquina, hora, vibración (mm/s), temperatura (°C), corriente (A), ciclos acumulados.",
+  "tienda": "Tabla: 410.000 filas, pedidos de una tienda en línea. Columnas: pedido, fecha, ciudad, categoría, precio, descuento (%), costo de envío, devuelto (sí/no)."
+ },
+ "preguntas": [
+  {
+   "t": "colegio",
+   "q": "nota promedio por materia",
+   "i": "describir"
+  },
+  {
+   "t": "colegio",
+   "q": "cuántos alumnos tienen menos de 7 de promedio?",
+   "i": "describir"
+  },
+  {
+   "t": "prestamos",
+   "q": "monto total prestado en 2024",
+   "i": "describir"
+  },
+  {
+   "t": "prestamos",
+   "q": "Dime cuántos préstamos hay por estado civil",
+   "i": "describir"
+  },
+  {
+   "t": "cultivos",
+   "q": "qué cultivo rinde más en promedio",
+   "i": "describir"
+  },
+  {
+   "t": "cultivos",
+   "q": "hectáreas sembradas por campaña, ordenadas de mayor a menor",
+   "i": "describir"
+  },
+  {
+   "t": "streaming",
+   "q": "cuáles son los 5 títulos más vistos?",
+   "i": "describir"
+  },
+  {
+   "t": "streaming",
+   "q": "oye cuántos minutos vieron los usuarios premium el mes pasado",
+   "i": "describir"
+  },
+  {
+   "t": "taller",
+   "q": "temperatura máxima registrada en cada máquina",
+   "i": "describir"
+  },
+  {
+   "t": "taller",
+   "q": "cuántas lecturas hay por día",
+   "i": "describir"
+  },
+  {
+   "t": "tienda",
+   "q": "ventas por ciudad",
+   "i": "describir"
+  },
+  {
+   "t": "tienda",
+   "q": "¿cuánto se vendió ayer?",
+   "i": "describir"
+  },
+  {
+   "t": "tienda",
+   "q": "porcentaje de pedidos devueltos por categoría",
+   "i": "describir"
+  },
+  {
+   "t": "colegio",
+   "q": "mejor y peor nota de cada curso",
+   "i": "describir"
+  },
+  {
+   "t": "prestamos",
+   "q": "ingreso medio de quienes pidieron más de 10 mil",
+   "i": "describir"
+  },
+  {
+   "t": "streaming",
+   "q": "en qué dispositivo se ve más contenido",
+   "i": "describir"
+  },
+  {
+   "t": "cultivos",
+   "q": "cuánto fertilizante se usó en total en la última campaña",
+   "i": "describir"
+  },
+  {
+   "t": "tienda",
+   "q": "dame el ticket promedio por mes del 2025",
+   "i": "describir"
+  },
+  {
+   "t": "taller",
+   "q": "corriente promedio de la máquina 3 en abril",
+   "i": "describir"
+  },
+  {
+   "t": "colegio",
+   "q": "numero de estudiantes por curso",
+   "i": "describir"
+  },
+  {
+   "t": "colegio",
+   "q": "hay notas fuera del rango 0 a 10?",
+   "i": "anomalos"
+  },
+  {
+   "t": "colegio",
+   "q": "alumnos con asistencia imposible",
+   "i": "anomalos"
+  },
+  {
+   "t": "prestamos",
+   "q": "montos que parecen mal digitados",
+   "i": "anomalos"
+  },
+  {
+   "t": "prestamos",
+   "q": "clientes con edad rara",
+   "i": "anomalos"
+  },
+  {
+   "t": "cultivos",
+   "q": "rendimientos que no cuadran con las hectáreas",
+   "i": "anomalos"
+  },
+  {
+   "t": "cultivos",
+   "q": "parcelas con lluvia atípica este año",
+   "i": "anomalos"
+  },
+  {
+   "t": "streaming",
+   "q": "usuarios que ven cosas raro, tipo bots",
+   "i": "anomalos"
+  },
+  {
+   "t": "streaming",
+   "q": "minutos vistos absurdos en alguna reproducción",
+   "i": "anomalos"
+  },
+  {
+   "t": "taller",
+   "q": "maquina con vibración fuera de lo normal, cuál?",
+   "i": "anomalos"
+  },
+  {
+   "t": "taller",
+   "q": "detectar picos de temperatura sospechosos",
+   "i": "anomalos"
+  },
+  {
+   "t": "taller",
+   "q": "el sensor de corriente se quedó pegado en algún momento?",
+   "i": "anomalos"
+  },
+  {
+   "t": "tienda",
+   "q": "pedidos con descuento extraño",
+   "i": "anomalos"
+  },
+  {
+   "t": "tienda",
+   "q": "envíos con costo que se sale de lo común",
+   "i": "anomalos"
+  },
+  {
+   "t": "tienda",
+   "q": "outliers en precio",
+   "i": "anomalos"
+  },
+  {
+   "t": "colegio",
+   "q": "notas que se salen del patrón de cada curso",
+   "i": "anomalos"
+  },
+  {
+   "t": "prestamos",
+   "q": "solicitudes con ingreso y monto incoherentes entre sí",
+   "i": "anomalos"
+  },
+  {
+   "t": "streaming",
+   "q": "días en que las reproducciones se dispararon raro",
+   "i": "anomalos"
+  },
+  {
+   "t": "cultivos",
+   "q": "datos de siembra con fechas imposibles",
+   "i": "anomalos"
+  },
+  {
+   "t": "taller",
+   "q": "ciclos acumulados que bajan en vez de subir",
+   "i": "anomalos"
+  },
+  {
+   "t": "tienda",
+   "q": "pedidos duplicados o con datos absurdos",
+   "i": "anomalos"
+  },
+  {
+   "t": "colegio",
+   "q": "faltan notas de algunos alumnos, completalas",
+   "i": "imputar"
+  },
+  {
+   "t": "colegio",
+   "q": "rellena la asistencia vacía",
+   "i": "imputar"
+  },
+  {
+   "t": "prestamos",
+   "q": "hay ingresos en blanco, ¿puedes estimarlos?",
+   "i": "imputar"
+  },
+  {
+   "t": "prestamos",
+   "q": "complete el estado civil faltante",
+   "i": "imputar"
+  },
+  {
+   "t": "cultivos",
+   "q": "faltan datos de lluvia en varias parcelas, rellénalos",
+   "i": "imputar"
+  },
+  {
+   "t": "cultivos",
+   "q": "rendimiento vacío en algunas filas, qué valor tendría",
+   "i": "imputar"
+  },
+  {
+   "t": "streaming",
+   "q": "dispositivo sin dato, completar",
+   "i": "imputar"
+  },
+  {
+   "t": "streaming",
+   "q": "minutos vistos faltantes, reconstrúyelos",
+   "i": "imputar"
+  },
+  {
+   "t": "taller",
+   "q": "se cortó el sensor 20 minutos, completa ese tramo",
+   "i": "imputar"
+  },
+  {
+   "t": "taller",
+   "q": "huecos de temperatura el fin de semana, llenarlos",
+   "i": "imputar"
+  },
+  {
+   "t": "tienda",
+   "q": "costo de envío vacío, ponle un valor razonable",
+   "i": "imputar"
+  },
+  {
+   "t": "tienda",
+   "q": "falta la ciudad en algunos pedidos, ¿se puede deducir?",
+   "i": "imputar"
+  },
+  {
+   "t": "colegio",
+   "q": "tapa los huecos de la columna nota con lo más probable",
+   "i": "imputar"
+  },
+  {
+   "t": "prestamos",
+   "q": "edad faltante, imputar",
+   "i": "imputar"
+  },
+  {
+   "t": "cultivos",
+   "q": "fertilizante sin registrar en la campaña pasada, recuperarlo",
+   "i": "imputar"
+  },
+  {
+   "t": "streaming",
+   "q": "usuarios sin tipo de suscripción, complétalo",
+   "i": "imputar"
+  },
+  {
+   "t": "taller",
+   "q": "vibración con valores nulos, interpola",
+   "i": "imputar"
+  },
+  {
+   "t": "tienda",
+   "q": "descuentos que no se guardaron, rellénalos",
+   "i": "imputar"
+  },
+  {
+   "t": "colegio",
+   "q": "las fechas de prueba que faltan, podrías reconstruirlas?",
+   "i": "imputar"
+  },
+  {
+   "t": "prestamos",
+   "q": "plazo vacío en varias solicitudes, ¿qué plazo tendrían?",
+   "i": "imputar"
+  },
+  {
+   "t": "colegio",
+   "q": "¿repetirá año este alumno?",
+   "i": "predecir"
+  },
+  {
+   "t": "colegio",
+   "q": "predice la nota final según asistencia y notas previas",
+   "i": "predecir"
+  },
+  {
+   "t": "prestamos",
+   "q": "probabilidad de que este cliente entre en mora",
+   "i": "predecir"
+  },
+  {
+   "t": "prestamos",
+   "q": "¿le aprobaría un préstamo de 5000 a 24 meses a alguien de 30 años con 900 de ingreso?",
+   "i": "predecir"
+  },
+  {
+   "t": "cultivos",
+   "q": "rendimiento esperado de una parcela de 4 hectáreas con 300 mm de lluvia",
+   "i": "predecir"
+  },
+  {
+   "t": "cultivos",
+   "q": "¿cuánto rendiría el maíz con 120 kg de fertilizante?",
+   "i": "predecir"
+  },
+  {
+   "t": "streaming",
+   "q": "¿qué género le gustará a este usuario?",
+   "i": "predecir"
+  },
+  {
+   "t": "streaming",
+   "q": "cuántos minutos verá este usuario en el próximo título",
+   "i": "predecir"
+  },
+  {
+   "t": "taller",
+   "q": "¿esta máquina va a fallar? dime con vibración y temperatura actuales",
+   "i": "predecir"
+  },
+  {
+   "t": "taller",
+   "q": "estima la corriente que consumirá con esa vibración",
+   "i": "predecir"
+  },
+  {
+   "t": "tienda",
+   "q": "este pedido será devuelto?",
+   "i": "predecir"
+  },
+  {
+   "t": "tienda",
+   "q": "cuánto costará el envío de este pedido",
+   "i": "predecir"
+  },
+  {
+   "t": "colegio",
+   "q": "¿qué nota sacaría con 70% de asistencia?",
+   "i": "predecir"
+  },
+  {
+   "t": "prestamos",
+   "q": "clasifica a los solicitantes en riesgo alto, medio o bajo",
+   "i": "predecir"
+  },
+  {
+   "t": "cultivos",
+   "q": "estima el rendimiento de las parcelas nuevas que aún no se cosechan",
+   "i": "predecir"
+  },
+  {
+   "t": "streaming",
+   "q": "predice si el usuario verá más de 60 minutos",
+   "i": "predecir"
+  },
+  {
+   "t": "taller",
+   "q": "qué temperatura tendrá la máquina 2 con esta corriente y vibración",
+   "i": "predecir"
+  },
+  {
+   "t": "tienda",
+   "q": "predecir la probabilidad de devolución de cada pedido",
+   "i": "predecir"
+  },
+  {
+   "t": "colegio",
+   "q": "dime si este estudiante está en riesgo de reprobar",
+   "i": "predecir"
+  },
+  {
+   "t": "prestamos",
+   "q": "¿cuál sería el monto más alto que puede pagar esta persona?",
+   "i": "predecir"
+  },
+  {
+   "t": "colegio",
+   "q": "cómo serán las notas promedio el próximo trimestre",
+   "i": "pronosticar"
+  },
+  {
+   "t": "colegio",
+   "q": "cuántos alumnos nuevos esperamos el año que viene",
+   "i": "pronosticar"
+  },
+  {
+   "t": "prestamos",
+   "q": "cuántas solicitudes entrarán la semana que viene",
+   "i": "pronosticar"
+  },
+  {
+   "t": "prestamos",
+   "q": "proyecta el monto total prestado para fin de año",
+   "i": "pronosticar"
+  },
+  {
+   "t": "cultivos",
+   "q": "cuánta lluvia habrá la próxima campaña",
+   "i": "pronosticar"
+  },
+  {
+   "t": "cultivos",
+   "q": "producción total esperada el próximo año",
+   "i": "pronosticar"
+  },
+  {
+   "t": "streaming",
+   "q": "reproducciones de mañana por hora",
+   "i": "pronosticar"
+  },
+  {
+   "t": "streaming",
+   "q": "¿cuántos minutos se verán el fin de semana largo?",
+   "i": "pronosticar"
+  },
+  {
+   "t": "taller",
+   "q": "temperatura de la máquina en las próximas 2 horas",
+   "i": "pronosticar"
+  },
+  {
+   "t": "taller",
+   "q": "cuándo llegará la vibración al límite si sigue así",
+   "i": "pronosticar"
+  },
+  {
+   "t": "tienda",
+   "q": "ventas de la próxima semana",
+   "i": "pronosticar"
+  },
+  {
+   "t": "tienda",
+   "q": "predicción de pedidos para el Black Friday",
+   "i": "pronosticar"
+  },
+  {
+   "t": "colegio",
+   "q": "tendencia de asistencia para los próximos meses",
+   "i": "pronosticar"
+  },
+  {
+   "t": "prestamos",
+   "q": "cómo evolucionará la mora el semestre que viene",
+   "i": "pronosticar"
+  },
+  {
+   "t": "cultivos",
+   "q": "estimación de hectáreas sembradas en 2027",
+   "i": "pronosticar"
+  },
+  {
+   "t": "streaming",
+   "q": "qué título será el más visto el próximo mes",
+   "i": "pronosticar"
+  },
+  {
+   "t": "taller",
+   "q": "cuántos ciclos tendrá la máquina 4 a fin de mes",
+   "i": "pronosticar"
+  },
+  {
+   "t": "tienda",
+   "q": "prevé las devoluciones de diciembre",
+   "i": "pronosticar"
+  },
+  {
+   "t": "colegio",
+   "q": "¿subirá o bajará el promedio general en el próximo bimestre?",
+   "i": "pronosticar"
+  },
+  {
+   "t": "streaming",
+   "q": "proyección de usuarios premium a 6 meses",
+   "i": "pronosticar"
+  },
+  {
+   "t": "colegio",
+   "q": "la asistencia influye en la nota?",
+   "i": "relaciones"
+  },
+  {
+   "t": "colegio",
+   "q": "qué tan relacionadas están las notas de matemáticas y física",
+   "i": "relaciones"
+  },
+  {
+   "t": "prestamos",
+   "q": "el ingreso tiene que ver con la mora?",
+   "i": "relaciones"
+  },
+  {
+   "t": "prestamos",
+   "q": "qué variables explican que alguien no pague",
+   "i": "relaciones"
+  },
+  {
+   "t": "cultivos",
+   "q": "la lluvia afecta el rendimiento?",
+   "i": "relaciones"
+  },
+  {
+   "t": "cultivos",
+   "q": "fertilizante vs rendimiento, hay relación?",
+   "i": "relaciones"
+  },
+  {
+   "t": "streaming",
+   "q": "¿hay relación entre el tipo de suscripción y los minutos vistos?",
+   "i": "relaciones"
+  },
+  {
+   "t": "streaming",
+   "q": "hay conexión entre el género y el dispositivo",
+   "i": "relaciones"
+  },
+  {
+   "t": "taller",
+   "q": "la vibración sube cuando sube la temperatura?",
+   "i": "relaciones"
+  },
+  {
+   "t": "taller",
+   "q": "qué pasa con la corriente cuando aumentan los ciclos",
+   "i": "relaciones"
+  },
+  {
+   "t": "tienda",
+   "q": "el descuento sí ayuda a que no devuelvan?",
+   "i": "relaciones"
+  },
+  {
+   "t": "tienda",
+   "q": "costo de envío y ciudad: ¿se asocian?",
+   "i": "relaciones"
+  },
+  {
+   "t": "colegio",
+   "q": "correlación entre asistencia y repetir año",
+   "i": "relaciones"
+  },
+  {
+   "t": "prestamos",
+   "q": "plazo y monto, ¿van de la mano?",
+   "i": "relaciones"
+  },
+  {
+   "t": "cultivos",
+   "q": "qué factor pesa más en el rendimiento",
+   "i": "relaciones"
+  },
+  {
+   "t": "streaming",
+   "q": "¿se mueven juntos los minutos vistos y la hora del día?",
+   "i": "relaciones"
+  },
+  {
+   "t": "taller",
+   "q": "¿existe vínculo entre la vibración y los ciclos acumulados?",
+   "i": "relaciones"
+  },
+  {
+   "t": "tienda",
+   "q": "qué columnas se parecen más al precio",
+   "i": "relaciones"
+  },
+  {
+   "t": "colegio",
+   "q": "¿las notas dependen del curso?",
+   "i": "relaciones"
+  },
+  {
+   "t": "prestamos",
+   "q": "¿el estado civil condiciona la mora?",
+   "i": "relaciones"
+  }
+ ]
+}

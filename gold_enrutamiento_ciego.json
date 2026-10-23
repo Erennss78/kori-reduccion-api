@@ -1,0 +1,461 @@
+{
+ "_nota": "Gold set CIEGO de E3 (escrito el 01/10/2026 por Claude, a pedido del usuario, ANTES de ver los resultados de Laya multilingual/typed-decisions ni de Qwen). 15 preguntas por intención, 4 tablas nuevas distintas de las del gold original. Limitaciones: lo escribió el mismo asistente que ayudó a escribir las reglas y vio sus patrones antes de redactar; no lo escribió otra persona. Algunas etiquetas pueden ser discutibles.",
+ "tablas": {
+  "urgencias": "Tabla: 85.000 filas, ingresos a urgencias de un hospital. Columnas: fecha de ingreso, edad, sexo, motivo, triaje (1 a 5), horas de espera, alta (sí/no), reingreso en 30 días (sí/no).",
+  "inmuebles": "Tabla: 48.000 filas, anuncios de venta de departamentos. Columnas: fecha de publicación, barrio, metros cuadrados, habitaciones, antigüedad (años), precio, días en el mercado.",
+  "flota": "Tabla: 3.400.000 filas, lecturas por minuto de camiones de reparto. Columnas: hora, camión, velocidad (km/h), temperatura del motor (°C), combustible (%), odómetro (km).",
+  "energia": "Tabla: 1.050.000 filas, consumo eléctrico de hogares cada 15 minutos. Columnas: hora, hogar, kWh, voltaje, temperatura exterior (°C), tarifa."
+ },
+ "preguntas": [
+  {
+   "t": "urgencias",
+   "q": "¿Cuántos pacientes ingresaron en enero?",
+   "i": "describir"
+  },
+  {
+   "t": "urgencias",
+   "q": "Dime el tiempo medio de espera por nivel de triaje",
+   "i": "describir"
+  },
+  {
+   "t": "inmuebles",
+   "q": "¿Cuál es el barrio con el precio por metro cuadrado más alto?",
+   "i": "describir"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Muéstrame cuántos anuncios se publicaron cada mes del año pasado",
+   "i": "describir"
+  },
+  {
+   "t": "flota",
+   "q": "¿Qué camión recorrió más kilómetros esta semana?",
+   "i": "describir"
+  },
+  {
+   "t": "flota",
+   "q": "Dame la velocidad máxima de cada camión",
+   "i": "describir"
+  },
+  {
+   "t": "energia",
+   "q": "¿Cuánto consumieron en total los hogares el mes pasado?",
+   "i": "describir"
+  },
+  {
+   "t": "energia",
+   "q": "Resúmeme el consumo promedio por tarifa",
+   "i": "describir"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿Qué porcentaje de pacientes recibió el alta el mismo día?",
+   "i": "describir"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Hazme un resumen de los precios por número de habitaciones",
+   "i": "describir"
+  },
+  {
+   "t": "flota",
+   "q": "¿Cuánto combustible gastó la flota en promedio cada día de marzo?",
+   "i": "describir"
+  },
+  {
+   "t": "energia",
+   "q": "Lista los 10 hogares que más consumen",
+   "i": "describir"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿A qué hora del día llegan más pacientes?",
+   "i": "describir"
+  },
+  {
+   "t": "inmuebles",
+   "q": "¿Cuánto tarda en venderse un departamento, en promedio?",
+   "i": "describir"
+  },
+  {
+   "t": "energia",
+   "q": "Cuál fue el pico de consumo del año",
+   "i": "describir"
+  },
+  {
+   "t": "urgencias",
+   "q": "Hay pacientes con edades que no tienen sentido, ¿cuáles son?",
+   "i": "anomalos"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿Hubo días con un número de ingresos muy distinto al resto?",
+   "i": "anomalos"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Encuentra anuncios con precios que parecen errores de digitación",
+   "i": "anomalos"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Departamentos de 20 m² con 6 habitaciones, ¿hay más casos así?",
+   "i": "anomalos"
+  },
+  {
+   "t": "flota",
+   "q": "¿Algún camión tuvo la temperatura del motor disparada?",
+   "i": "anomalos"
+  },
+  {
+   "t": "flota",
+   "q": "Detecta lecturas de velocidad imposibles",
+   "i": "anomalos"
+  },
+  {
+   "t": "flota",
+   "q": "El odómetro de algunos camiones retrocede, ¿cuáles?",
+   "i": "anomalos"
+  },
+  {
+   "t": "energia",
+   "q": "¿Qué hogares tienen un consumo que no cuadra con su historial?",
+   "i": "anomalos"
+  },
+  {
+   "t": "energia",
+   "q": "Voltajes que se salgan de lo esperable, por favor",
+   "i": "anomalos"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿Hay tiempos de espera negativos o absurdos?",
+   "i": "anomalos"
+  },
+  {
+   "t": "energia",
+   "q": "Quiero ver las lecturas que parecen un fallo del medidor",
+   "i": "anomalos"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Señala los anuncios que destacan por ser muy distintos de los demás",
+   "i": "anomalos"
+  },
+  {
+   "t": "flota",
+   "q": "¿En qué momentos el consumo de combustible fue inusual?",
+   "i": "anomalos"
+  },
+  {
+   "t": "urgencias",
+   "q": "Pacientes cuyo caso se sale del patrón normal",
+   "i": "anomalos"
+  },
+  {
+   "t": "energia",
+   "q": "¿Hay picos de consumo sospechosos de madrugada?",
+   "i": "anomalos"
+  },
+  {
+   "t": "urgencias",
+   "q": "A muchos pacientes les falta la edad, ¿puedes completarla?",
+   "i": "imputar"
+  },
+  {
+   "t": "urgencias",
+   "q": "Hay horas de espera sin registrar, rellénalas",
+   "i": "imputar"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Faltan los metros cuadrados en varios anuncios, estímalos",
+   "i": "imputar"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Algunos anuncios no tienen la antigüedad, complétala",
+   "i": "imputar"
+  },
+  {
+   "t": "flota",
+   "q": "Hay minutos sin lectura de GPS, reconstruye esos huecos",
+   "i": "imputar"
+  },
+  {
+   "t": "flota",
+   "q": "El sensor de combustible dejó vacíos varios días, ¿se pueden llenar?",
+   "i": "imputar"
+  },
+  {
+   "t": "flota",
+   "q": "Completa las temperaturas del motor que no se guardaron",
+   "i": "imputar"
+  },
+  {
+   "t": "energia",
+   "q": "Hay hogares sin lectura durante horas, rellena esos valores",
+   "i": "imputar"
+  },
+  {
+   "t": "energia",
+   "q": "Faltan datos de voltaje en algunos tramos, ¿cómo los recuperamos?",
+   "i": "imputar"
+  },
+  {
+   "t": "energia",
+   "q": "Quiero la tabla sin celdas vacías de temperatura exterior",
+   "i": "imputar"
+  },
+  {
+   "t": "urgencias",
+   "q": "El triaje está en blanco en algunos registros, ¿lo puedes inferir?",
+   "i": "imputar"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Los precios que no están, ¿qué valor tendrían?",
+   "i": "imputar"
+  },
+  {
+   "t": "flota",
+   "q": "Rellena la velocidad en los registros donde viene vacía",
+   "i": "imputar"
+  },
+  {
+   "t": "energia",
+   "q": "Hay lecturas perdidas por cortes de comunicación, recomponlas",
+   "i": "imputar"
+  },
+  {
+   "t": "urgencias",
+   "q": "Deja completos los motivos de ingreso que faltan",
+   "i": "imputar"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿Cuál es la probabilidad de que este paciente reingrese en 30 días?",
+   "i": "predecir"
+  },
+  {
+   "t": "urgencias",
+   "q": "Dados la edad y el triaje, ¿cuántas horas esperará?",
+   "i": "predecir"
+  },
+  {
+   "t": "inmuebles",
+   "q": "¿En cuánto se vendería un departamento de 85 m² con 3 habitaciones en este barrio?",
+   "i": "predecir"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Estima cuántos días tardará en venderse un anuncio con estas características",
+   "i": "predecir"
+  },
+  {
+   "t": "flota",
+   "q": "¿Este camión está en riesgo de sobrecalentarse según sus lecturas actuales?",
+   "i": "predecir"
+  },
+  {
+   "t": "flota",
+   "q": "Calcula cuánto combustible gastará un camión con esa velocidad y distancia",
+   "i": "predecir"
+  },
+  {
+   "t": "energia",
+   "q": "¿Cuánto consumirá un hogar con esa tarifa cuando afuera hay 30 grados?",
+   "i": "predecir"
+  },
+  {
+   "t": "energia",
+   "q": "Clasifica cada hogar según si es probable que cambie de tarifa",
+   "i": "predecir"
+  },
+  {
+   "t": "urgencias",
+   "q": "Entrena algo que diga si un paciente será dado de alta",
+   "i": "predecir"
+  },
+  {
+   "t": "inmuebles",
+   "q": "¿Cuál debería ser el precio de este nuevo anuncio?",
+   "i": "predecir"
+  },
+  {
+   "t": "flota",
+   "q": "Dime si este camión necesitará mantenimiento a partir de sus datos",
+   "i": "predecir"
+  },
+  {
+   "t": "energia",
+   "q": "¿Qué hogares tienen más chance de ser grandes consumidores?",
+   "i": "predecir"
+  },
+  {
+   "t": "urgencias",
+   "q": "Con estos síntomas y la edad, ¿qué nivel de triaje le tocaría?",
+   "i": "predecir"
+  },
+  {
+   "t": "inmuebles",
+   "q": "¿Qué tan probable es que este departamento se venda en menos de un mes?",
+   "i": "predecir"
+  },
+  {
+   "t": "flota",
+   "q": "Estima la temperatura del motor de un camión que va a 90 km/h con 40 % de combustible",
+   "i": "predecir"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿Cuántos pacientes llegarán el fin de semana?",
+   "i": "pronosticar"
+  },
+  {
+   "t": "urgencias",
+   "q": "Necesito saber la demanda de urgencias de las próximas dos semanas",
+   "i": "pronosticar"
+  },
+  {
+   "t": "inmuebles",
+   "q": "¿Cómo se moverán los precios en los próximos seis meses?",
+   "i": "pronosticar"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Cuántos anuncios nuevos habrá el mes que viene",
+   "i": "pronosticar"
+  },
+  {
+   "t": "flota",
+   "q": "¿Cuánto combustible va a necesitar la flota la semana entrante?",
+   "i": "pronosticar"
+  },
+  {
+   "t": "flota",
+   "q": "¿A qué hora del día de mañana habrá más camiones en ruta?",
+   "i": "pronosticar"
+  },
+  {
+   "t": "energia",
+   "q": "Prevé el consumo de esta noche",
+   "i": "pronosticar"
+  },
+  {
+   "t": "energia",
+   "q": "Quiero la curva de demanda de los próximos 7 días",
+   "i": "pronosticar"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿Se espera un pico de ingresos en diciembre?",
+   "i": "pronosticar"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Hacia dónde va el tiempo en el mercado de departamentos durante el próximo trimestre",
+   "i": "pronosticar"
+  },
+  {
+   "t": "flota",
+   "q": "Proyecta los kilómetros que acumulará la flota a fin de año",
+   "i": "pronosticar"
+  },
+  {
+   "t": "energia",
+   "q": "Cuánta energía se gastará mañana a mediodía",
+   "i": "pronosticar"
+  },
+  {
+   "t": "urgencias",
+   "q": "Anticipa las horas de espera medias del próximo lunes",
+   "i": "pronosticar"
+  },
+  {
+   "t": "energia",
+   "q": "¿Cómo será el consumo del mes que entra comparado con este?",
+   "i": "pronosticar"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Dime cuánto subirá el metro cuadrado el año que viene",
+   "i": "pronosticar"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿Esperar más tiempo se asocia con volver a ingresar?",
+   "i": "relaciones"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿Qué variables tienen más peso en que un paciente reingrese?",
+   "i": "relaciones"
+  },
+  {
+   "t": "inmuebles",
+   "q": "¿La antigüedad del edificio afecta el precio?",
+   "i": "relaciones"
+  },
+  {
+   "t": "inmuebles",
+   "q": "¿Hay vínculo entre el número de habitaciones y los días en el mercado?",
+   "i": "relaciones"
+  },
+  {
+   "t": "flota",
+   "q": "¿La temperatura del motor depende de la velocidad?",
+   "i": "relaciones"
+  },
+  {
+   "t": "flota",
+   "q": "¿Qué factores explican el gasto de combustible?",
+   "i": "relaciones"
+  },
+  {
+   "t": "energia",
+   "q": "¿Cuánto influye el calor de afuera en el consumo?",
+   "i": "relaciones"
+  },
+  {
+   "t": "energia",
+   "q": "¿El voltaje y el consumo van de la mano?",
+   "i": "relaciones"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿El motivo de ingreso tiene que ver con la edad?",
+   "i": "relaciones"
+  },
+  {
+   "t": "inmuebles",
+   "q": "Qué columnas están más correlacionadas con el precio",
+   "i": "relaciones"
+  },
+  {
+   "t": "flota",
+   "q": "¿Los camiones más viejos gastan más combustible por kilómetro?",
+   "i": "relaciones"
+  },
+  {
+   "t": "energia",
+   "q": "¿Cambia el consumo según la tarifa contratada, o es casualidad?",
+   "i": "relaciones"
+  },
+  {
+   "t": "urgencias",
+   "q": "¿Está ligado el triaje con las horas de espera?",
+   "i": "relaciones"
+  },
+  {
+   "t": "inmuebles",
+   "q": "¿El barrio condiciona cuánto tarda en venderse?",
+   "i": "relaciones"
+  },
+  {
+   "t": "flota",
+   "q": "Cuando sube la velocidad, ¿sube también la temperatura?",
+   "i": "relaciones"
+  }
+ ]
+}
